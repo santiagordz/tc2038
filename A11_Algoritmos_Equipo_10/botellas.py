@@ -11,7 +11,7 @@ def calculateNumberSodas(baseRadius, height, bottleCapacity):
     machineVolume = math.pi * (baseRadius ** 2) * height # Volume of the machine
     bottleCapacity = bottleCapacity / 1000 # Convert bottle capacity to liters
     numberSodas = machineVolume / bottleCapacity # Number of sodas that fit in the machine
-    numberSodas = round(numberSodas, 2) # Return with 2 decimals
+    numberSodas = math.floor(numberSodas) # Round down the number of sodas
     return numberSodas
 
 # Main
