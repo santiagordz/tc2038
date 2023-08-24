@@ -2,4 +2,4 @@
 
 This is the repository for the class of Analysis and design of advanced algorithms.
 
-This is property of Myself and Juan Pablo Cabrera.
+This is property of Santiago Rodriguez, David Langarica and Juan Pablo Cabrera.
