@@ -8,7 +8,7 @@ vector<int> cambio(int num_monedas, vector<int> &monedas, int p, int q)
 {
     sort(monedas.begin(), monedas.end());
     // Hacer Matriz de PD
-    int cambio = p - q;
+    int cambio = q - p;
     int const rows = monedas.size();
     vector<vector<int>> matriz(rows, vector<int>(cambio + 1));
     for (int row = 0; row < rows; row++)
@@ -105,13 +105,36 @@ vector<int> cambio(int num_monedas, vector<int> &monedas, int p, int q)
 
 int main()
 {
-    vector<int> monedas = {1, 10, 7};
-    vector<int> retorno = cambio(monedas.size(), monedas, 100, 85);
-    // print retorno
-    cout << "[ ";
-    for (int i = 0; i < retorno.size(); i++)
+    cout << "Caso de prueba 1:" << endl;
+    vector<int> monedas = {5, 25, 10, 50};
+    vector<int> sol1 = cambio(4, monedas, 325, 500);
+    for (int i = 0; i < sol1.size(); i++)
     {
-        cout << retorno[i] << ", ";
+        cout << sol1[i] << " ";
     }
-    cout << "]" << endl;
+    cout << endl;
+    cout << "Caso de prueba 2:" << endl;
+    vector<int> monedas2 = {20, 25, 10, 5};
+    vector<int> sol2 = cambio(4, monedas2, 160, 200);
+    for (int i = 0; i < sol2.size(); i++)
+    {
+        cout << sol2[i] << " ";
+    }
+    cout << endl;
+    cout << "Caso de prueba 3:" << endl;
+    vector<int> monedas3 = {1, 10, 7};
+    vector<int> sol3 = cambio(3, monedas3, 85, 100);
+    for (int i = 0; i < sol3.size(); i++)
+    {
+        cout << sol3[i] << " ";
+    }
+    cout << endl;
+    cout << "Caso de prueba 4:" << endl;
+    vector<int> monedas4 = {100, 25, 10, 5, 1};
+    vector<int> sol4 = cambio(5, monedas4, 100, 711);
+    for (int i = 0; i < sol4.size(); i++)
+    {
+        cout << sol4[i] << " ";
+    }
+    cout << endl;
 }
