@@ -1,12 +1,19 @@
+"""
+    Equipo 10
+    Ejemplo de cambio avaro
+    Complejidad: O(n log n)
+"""
+
+
 def darCambio(num_moneda, monedas, costo, pago):
-    cambio = pago - costo
-    monedas.sort(reverse=True)
-    monedas_usadas = []
-    for moneda in monedas:
-        while cambio >= moneda:
-            cambio -= moneda
-            monedas_usadas.append(moneda)
-    return monedas_usadas
+    cambio = pago - costo  # Calcula el cambio a dar
+    monedas.sort(reverse=True)  # Ordena las monedas de mayor a menor
+    monedasUsadas = []  # Lista de monedas a dar de cambio
+    for moneda in monedas:  # Recorre las monedas
+        while cambio >= moneda:  # Mientras el cambio sea mayor o igual a la moneda
+            cambio -= moneda  # Resta la moneda al cambio
+            monedasUsadas.append(moneda)  # Agrega la moneda
+    return monedasUsadas  # Regresa la lista de monedas a dar de cambio
 
 
 print("Caso de prueba 1: ")

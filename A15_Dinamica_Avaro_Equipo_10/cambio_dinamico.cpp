@@ -1,3 +1,10 @@
+/*
+    Equipo 10
+    Ejemplo de cambio dinamico
+    Complejidad: O(n*m)
+    Donde n es el numero de monedas y m es el cambio
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
