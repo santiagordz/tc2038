@@ -131,17 +131,80 @@ def concat(n, toHex):
     return res
 
 
-if __name__ == "__main__":
+def caso_prueba1(filename):
+    file = open_file(filename)
+    n = 16
+    matriz = generar_matriz(file, n)
+    ascii = suma_ascii(matriz)
+    hash = hash256(ascii)
+    Hex = toHex(hash)
+    res = concat(n, Hex)
+    return res
+
+
+def caso_prueba2(filename):
+    file = open_file(filename)
+    n = 16
+    matriz = generar_matriz(file, n)
+    ascii = suma_ascii(matriz)
+    hash = hash256(ascii)
+    Hex = toHex(hash)
+    res = concat(n, Hex)
+    return res
+
+
+def caso_prueba3(filename):
+    file = open_file(filename)
+    n = 16
+    matriz = generar_matriz(file, n)
+    ascii = suma_ascii(matriz)
+    hash = hash256(ascii)
+    Hex = toHex(hash)
+    res = concat(n, Hex)
+    return res
+
+
+def caso_prueba4(filename):
+    file = open_file(filename)
+    n = 16
+    matriz = generar_matriz(file, n)
+    ascii = suma_ascii(matriz)
+    hash = hash256(ascii)
+    Hex = toHex(hash)
+    res = concat(n, Hex)
+    return res
+
+
+def caso_usuario():
     file_name = input("Ingrese el nombre del archivo de texto (sin extension): ")
     file = open_file(file_name + ".txt")
     n = get_n()
     matriz = generar_matriz(file, n)
     imprimir_matriz(matriz)
-    suma_ascii = suma_ascii(matriz)
-    print("Matriz con suma de valores por columna:\n", suma_ascii, "\n")
-    hash256 = hash256(suma_ascii)
-    print("Matriz con hash 256 por columna:\n", hash256, "\n")
-    toHex = toHex(hash256)
-    print("Matriz con hash 256 en hexadecimal por columna:\n", toHex, "\n")
-    res = concat(n, toHex)
+    ascii = suma_ascii(matriz)
+    print("Matriz con suma de valores por columna:\n", ascii, "\n")
+    hash = hash256(ascii)
+    print("Matriz con hash 256 por columna:\n", hash, "\n")
+    Hex = toHex(hash)
+    print("Matriz con hash 256 en hexadecimal por columna:\n", Hex, "\n")
+    res = concat(n, Hex)
     print("Representacion hexadecimal:\n", res, "\n")
+
+
+if __name__ == "__main__":
+    print("Bienvenido al algoritmo de hash 256 bits")
+
+    print("\n1. Caso de prueba 1")
+    print(caso_prueba1("caso.txt"))
+
+    print("\n2. Caso de prueba 2")
+    print(caso_prueba2("caso.txt"))
+
+    print("\n3. Caso de prueba 3")
+    print(caso_prueba3("caso.txt"))
+
+    print("\n4. Caso de prueba 4")
+    print(caso_prueba4("caso.txt"))
+
+    print("\n5. Caso de prueba Usuario")
+    caso_usuario()
