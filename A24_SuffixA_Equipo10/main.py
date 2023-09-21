@@ -1,3 +1,11 @@
+"""
+Autores: Santiago Rodriguez, Juanpablo Cabrera, David Langarica
+Fecha: 21/09/23
+Descripcion: Implementacion del algoritmo de Suffix Array
+"""
+
+
+# Complejidad: O(n * logn)
 def buildSuffixArray(text):
     suffixes = [(text[i:], i) for i in range(len(text))]
 
