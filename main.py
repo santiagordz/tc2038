@@ -40,3 +40,12 @@ def open_file(file_name):
     with open(file_path, "r") as file:
         content = file.read()
     return content
+
+
+if __name__ == "__main__":
+    transmision1 = open_file("/casos-de-prueba/transmission01.txt")
+    transmision2 = open_file("/casos-de-prueba/transmission02.txt")
+    mcode1 = open_file("/casos-de-prueba/mcode01.txt")
+    mcode2 = open_file("/casos-de-prueba/mcode02.txt")
+    mcode3 = open_file("/casos-de-prueba/mcode03.txt")
+    print(transmision1)
