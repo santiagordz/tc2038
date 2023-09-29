@@ -27,9 +27,9 @@
     Muestra la posición inicial y final del primer substring más largo común.
 """
 
+import math
 # Imports
 import os
-import math
 
 
 # Abrir archivo de texto desde la carpeta del programa
@@ -91,6 +91,29 @@ def print_mcode_results(results):
     else:
         print("(false) Cadena no encontrada en la transmisión")
 
+# ------------------------------ 2. Detección de Palíndromos ------------------------------
+# Busca palíndromos en el texto.
+# Complejidad: O(n^2)
+def find_longest_common_substring(text1, text2):
+    m = len(text1)
+    n = len(text2)
+    longest_common_substring = ""
+
+    # Crear una tabla para almacenar las longitudes de los substrings comunes
+    table = [[0] * (n + 1) for _ in range(m + 1)]
+
+    # Iterar a través de los archivos y llenar la tabla
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if text1[i - 1] == text2[j - 1]:
+                table[i][j] = table[i - 1][j - 1] + 1
+                if table[i][j] > len(longest_common_substring):
+                    longest_common_substring = text1[i - table[i][j]:i]
+            else:
+                table[i][j] = 0
+
+    return longest_common_substring
+
 
 if __name__ == "__main__":
     print("Archivo de transmisión 1: ")
@@ -128,3 +151,10 @@ if __name__ == "__main__":
     print_mcode_results(search_substring(transmision2, mcode2))
     print("mcode 3:")
     print_mcode_results(search_substring(transmision2, mcode3))
+    
+    common_substring = find_longest_common_substring(transmision1, transmision2)
+
+    if common_substring:
+        print("\n\n\nSub-String más largo", common_substring)
+    else:
+        print("No se encontró un substring compartido en ambas transmisiones.")
