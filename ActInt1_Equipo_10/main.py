@@ -27,7 +27,6 @@
     Muestra la posición inicial y final del primer substring más largo común.
 """
 
-import math
 # Imports
 import os
 
@@ -117,12 +116,12 @@ def find_longest_common_substring(text1, text2):
 
 if __name__ == "__main__":
     print("Archivo de transmisión 1: ")
-    transmision1 = open_file("casos-de-prueba/transmission01.txt")
-    print(transmision1, "\n")
+    transmission1 = open_file("casos-de-prueba/transmission01.txt")
+    print(transmission1, "\n")
 
     print("Archivo de transmisión 2: ")
-    transmision2 = open_file("casos-de-prueba/transmission02.txt")
-    print(transmision2, "\n")
+    transmission2 = open_file("casos-de-prueba/transmission02.txt")
+    print(transmission2, "\n")
 
     print("Archivo de mcode 1: ")
     mcode1 = open_file("casos-de-prueba/mcode01.txt")
@@ -136,23 +135,23 @@ if __name__ == "__main__":
     mcode3 = open_file("casos-de-prueba/mcode03.txt")
     print(mcode3, "\n")
 
-    print("T R A N S M I S I O N  1\n")
+    print("T R A N S M I S S I O N  1\n")
     print("mcode 1:")
-    print_mcode_results(search_substring(transmision1, mcode1))
+    print_mcode_results(search_substring(transmission1, mcode1))
     print("mcode 2:")
-    print_mcode_results(search_substring(transmision1, mcode2))
+    print_mcode_results(search_substring(transmission1, mcode2))
     print("mcode 3:")
-    print_mcode_results(search_substring(transmision1, mcode3))
+    print_mcode_results(search_substring(transmission1, mcode3))
 
-    print("\n\nT R A N S M I S I O N  2\n")
+    print("\n\nT R A N S M I S S I O N  2\n")
     print("mcode 1:")
-    print_mcode_results(search_substring(transmision2, mcode1))
+    print_mcode_results(search_substring(transmission2, mcode1))
     print("mcode 2:")
-    print_mcode_results(search_substring(transmision2, mcode2))
+    print_mcode_results(search_substring(transmission2, mcode2))
     print("mcode 3:")
-    print_mcode_results(search_substring(transmision2, mcode3))
+    print_mcode_results(search_substring(transmission2, mcode3))
     
-    common_substring = find_longest_common_substring(transmision1, transmision2)
+    common_substring = find_longest_common_substring(transmission1, transmission2)
 
     if common_substring:
         print("\n\n\nSub-String más largo", common_substring)
