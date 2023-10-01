@@ -91,30 +91,6 @@ def print_mcode_results(results):
         print("(false) Cadena no encontrada en la transmisión")
 
 # ------------------------------ 2. Detección de Palíndromos ------------------------------
-# Busca palíndromos en el texto.
-# Complejidad: O(n^2)
-def find_longest_common_substring(text1, text2):
-    m = len(text1)
-    n = len(text2)
-    longest_common_substring = ""
-
-    # Crear una tabla para almacenar las longitudes de los substrings comunes
-    table = [[0] * (n + 1) for _ in range(m + 1)]
-
-    # Iterar a través de los archivos y llenar la tabla
-    for i in range(1, m + 1):
-        for j in range(1, n + 1):
-            if text1[i - 1] == text2[j - 1]:
-                table[i][j] = table[i - 1][j - 1] + 1
-                if table[i][j] > len(longest_common_substring):
-                    longest_common_substring = text1[i - table[i][j]:i]
-            else:
-                table[i][j] = 0
-
-    return longest_common_substring
-
-
-# ------------------------------ 3. Comparación de Archivos de Transmisión: ------------------------------
 # Función para encontrar el palíndromo más largo en una cadena
 # Complejidad: O(n^2)
 def find_longest_palindrome(text):
@@ -151,6 +127,30 @@ def find_longest_palindrome(text):
         cl = cl + 1
 
     return text[start:start + maxLength], start + 1, start + maxLength
+
+
+# ------------------------------ 3. Sub-String más largo: ------------------------------
+# Busca palíndromos en el texto.
+# Complejidad: O(n^2)
+def find_longest_common_substring(text1, text2):
+    m = len(text1)
+    n = len(text2)
+    longest_common_substring = ""
+
+    # Crear una tabla para almacenar las longitudes de los substrings comunes
+    table = [[0] * (n + 1) for _ in range(m + 1)]
+
+    # Iterar a través de los archivos y llenar la tabla
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if text1[i - 1] == text2[j - 1]:
+                table[i][j] = table[i - 1][j - 1] + 1
+                if table[i][j] > len(longest_common_substring):
+                    longest_common_substring = text1[i - table[i][j]:i]
+            else:
+                table[i][j] = 0
+
+    return longest_common_substring
 
 if __name__ == "__main__":
     print("Archivo de transmisión 1: ")
