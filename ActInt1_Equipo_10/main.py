@@ -114,6 +114,44 @@ def find_longest_common_substring(text1, text2):
     return longest_common_substring
 
 
+# ------------------------------ 3. Comparación de Archivos de Transmisión: ------------------------------
+# Función para encontrar el palíndromo más largo en una cadena
+# Complejidad: O(n^2)
+def find_longest_palindrome(text):
+    n = len(text)
+    table = [[0 for x in range(n)] for y in range(n)]
+    
+
+    maxLength = 1
+    i = 0
+    while (i < n) :
+        table[i][i] = True
+        i = i + 1
+
+
+    start = 0
+    i = 0
+    while i < n - 1 :
+        if (text[i] == text[i+1]):
+            table[i][i+1] = True
+            start = i
+            maxLength = 2
+        i = i + 1
+
+    cl = 3
+    while cl <= n :
+        i = 0
+        while i < (n - cl + 1) :
+            j = i + cl - 1
+            if (text[i] == text[j] and table[i + 1][j - 1]) :
+                table[i][j] = True
+                start = i
+                maxLength = cl
+            i = i + 1
+        cl = cl + 1
+
+    return text[start:start + maxLength], start + 1, start + maxLength
+
 if __name__ == "__main__":
     print("Archivo de transmisión 1: ")
     transmission1 = open_file("casos-de-prueba/transmission01.txt")
@@ -157,39 +195,12 @@ if __name__ == "__main__":
         print("\n\n\nSub-String más largo", common_substring)
     else:
         print("No se encontró un substring compartido en ambas transmisiones.")
-
-# ------------------------------ 3. Comparación de Archivos de Transmisión: ------------------------------
-# Función para encontrar el palíndromo más largo en una cadena
-# Complejidad: O(n^2)
-def find_longest_palindrome(text):
-    n = len(text)
-    longest_palindrome = ""
-    start = end = 0
     
-    for i in range(n):
-        for j in range(i, n):
-            substring = text[i:j+1]
-            if substring == substring[::-1] and len(substring) > len(longest_palindrome):
-                longest_palindrome = substring
-                start = i
-                end = j
-    
-    return longest_palindrome, start + 1, end + 1
 
-if __name__ == "__main__":
-    print("Archivo de transmisión 1: ")
-    transmission1 = open_file("casos-de-prueba/transmission01.txt")
-    print(transmission1, "\n")
-
-    print("Archivo de transmisión 2: ")
-    transmission2 = open_file("casos-de-prueba/transmission02.txt")
-    print(transmission2, "\n")
-
-    # Buscar el palíndromo más largo en cada archivo de transmisión
     palindrome1, start1, end1 = find_longest_palindrome(transmission1)
     palindrome2, start2, end2 = find_longest_palindrome(transmission2)
 
-    # Mostrar el palíndromo más largo y sus posiciones en cada archivo
+
     print("Palíndromo más largo en la transmisión 1:")
     print("Texto del palíndromo:", palindrome1)
     print("Posición Inicial:", start1)
