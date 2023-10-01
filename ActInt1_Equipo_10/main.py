@@ -164,7 +164,7 @@ def find_substring_positions(file_content, substring):
     j = 0
 
     # Preprocesa el patron (substring) para calcular lps[]
-    computeLPSArray(substring, M, lps)
+    get_LPS_array(substring, M, lps)
 
     i = 0
     while i < N:
@@ -177,7 +177,7 @@ def find_substring_positions(file_content, substring):
             j = lps[j-1]
 
         elif i < N and substring[j] != file_content[i]:
-            # No coinciden los caracteres lps[0..lps[j-1]], de todos modos coincidirán
+            # No coinciden los caracteres
             if j != 0:
                 j = lps[j-1]
             else:
@@ -186,7 +186,7 @@ def find_substring_positions(file_content, substring):
 
 # Funcion para calcular el arreglo de prefijos mas largos para un substring dado
 # Complejidad: O(n)
-def computeLPSArray(substring, M, lps):
+def get_LPS_array(substring, M, lps):
     length = 0
 
     lps[0] = 0
