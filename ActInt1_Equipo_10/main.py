@@ -153,6 +153,7 @@ def find_longest_common_substring(text1, text2):
     return longest_common_substring
 
 # Funcion para encontrar las posiciones de un substring en un archivo.
+# Basado en la propuesta por: https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/
 # Complejidad: O(n)
 def find_substring_positions(file_content, substring):
     positions = []
@@ -192,7 +193,6 @@ def get_LPS_array(substring, M, lps):
     lps[0] = 0
     i = 1
 
-    # El ciclo calcula lps[i] para i = 1 a M-1
     while i < M:
         if substring[i]== substring[length]:
             length += 1
