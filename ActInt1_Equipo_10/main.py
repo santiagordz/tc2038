@@ -259,8 +259,8 @@ if __name__ == "__main__":
         positions_in_transmission1 = find_substring_positions(transmission1, common_substring)
         positions_in_transmission2 = find_substring_positions(transmission2, common_substring)
 
-        print_substring_positions("Transmisión 1", positions_in_file1)
-        print_substring_positions("Transmisión 2", positions_in_file2)
+        print_substring_positions("Transmisión 1", positions_in_transmission1)
+        print_substring_positions("Transmisión 2", positions_in_transmission2)
 
     else:
         print("No se encontró un substring compartido en ambas transmisiones.")
