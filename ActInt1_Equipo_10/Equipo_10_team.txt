@@ -1,0 +1,10 @@
+Miembros del equipo:
+
+Santiago Rodriguez Murialdo A01704109
+Juan Pablo Cabrera Quiroga
+David Rene Langarica Hernandez
+
+Partes Trabajadas:
+Santiago -> Encontrar Codigo Malicioso
+David -> Encontrar Substring Mas Largo
+Juan Pablo -> Encontrar Palindromo
