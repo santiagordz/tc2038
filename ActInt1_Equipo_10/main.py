@@ -130,7 +130,7 @@ def find_longest_palindrome(text):
 
 
 # ------------------------------ 3. Sub-String más largo: ------------------------------
-# Busca palíndromos en el texto.
+# Funcion para encontrar el substring mas largo en dos archivos de texto.
 # Complejidad: O(n^2)
 def find_longest_common_substring(text1, text2):
     m = len(text1)
