@@ -209,10 +209,10 @@ def computeLPSArray(substring, M, lps):
 
 # Imprime las posiciones de un substring en un archivo.
 # Complejidad: O(n)
-def print_positions(file_name, positions):
-    print(f"\nPosiciones en la {file_name}:")
+def print_substring_positions(file_name, positions):
+    print("\nPosiciones en la {}: ".format(file_name))
     for start, end in positions:
-        print(f"Posicion inicial: {start+1} Posicion final: {end+1}")
+        print("Posicion inicial: {} Posicion final: {}".format(start+1, end+1))
 
 if __name__ == "__main__":
     print("Archivo de transmisión 1: ")
@@ -256,11 +256,11 @@ if __name__ == "__main__":
     if common_substring:
         print("\n\n\nSub-String más largo", common_substring)
         
-        positions_in_file1 = find_substring_positions(transmission1, common_substring)
-        positions_in_file2 = find_substring_positions(transmission2, common_substring)
+        positions_in_transmission1 = find_substring_positions(transmission1, common_substring)
+        positions_in_transmission2 = find_substring_positions(transmission2, common_substring)
 
-        print_positions("Transmisión 1", positions_in_file1)
-        print_positions("Transmisión 2", positions_in_file2)
+        print_substring_positions("Transmisión 1", positions_in_file1)
+        print_substring_positions("Transmisión 2", positions_in_file2)
 
     else:
         print("No se encontró un substring compartido en ambas transmisiones.")
