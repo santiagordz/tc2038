@@ -64,9 +64,9 @@ def search_substring(text, substring):
     # Realiza una búsqueda en el sufijo del texto.
     for suffix_start in suffix_array:
         suffix_end = suffix_start + len(substring)
-        # Check if the substring is a prefix of the current suffix.
+        # Checa si el substring es un prefijo del sufijo actual.
         if text[suffix_start:suffix_end] == substring:
-            # Add the position of the suffix to the list of positions.
+            # Agrega la posición del sufijo a la lista de posiciones.
             positions.append((suffix_start, suffix_end))
 
     positions.sort()
@@ -152,6 +152,68 @@ def find_longest_common_substring(text1, text2):
 
     return longest_common_substring
 
+# Funcion para encontrar las posiciones de un substring en un archivo.
+# Complejidad: O(n)
+def find_substring_positions(file_content, substring):
+    positions = []
+    M = len(substring)
+    N = len(file_content)
+
+    # calcula el arreglo de prefijos mas largos
+    lps = [0]*M
+    j = 0
+
+    # Preprocesa el patron (substring) para calcular lps[]
+    computeLPSArray(substring, M, lps)
+
+    i = 0
+    while i < N:
+        if substring[j] == file_content[i]:
+            i += 1
+            j += 1
+
+        if j == M:
+            positions.append((i-j, i-1))
+            j = lps[j-1]
+
+        elif i < N and substring[j] != file_content[i]:
+            # No coinciden los caracteres lps[0..lps[j-1]], de todos modos coincidirán
+            if j != 0:
+                j = lps[j-1]
+            else:
+                i += 1
+    return positions
+
+# Funcion para calcular el arreglo de prefijos mas largos para un substring dado
+# Complejidad: O(n)
+def computeLPSArray(substring, M, lps):
+    length = 0
+
+    lps[0] = 0
+    i = 1
+
+    # El ciclo calcula lps[i] para i = 1 a M-1
+    while i < M:
+        if substring[i]== substring[length]:
+            length += 1
+            lps[i] = length
+            i += 1
+        else:
+            # Busca el caracter que no coincide en lps[0..lps[i-1]]
+            if length != 0:
+                length = lps[length-1]
+                
+            else:
+                lps[i] = 0
+                i += 1
+
+# Imprime las posiciones de un substring en un archivo.
+# Complejidad: O(n)
+def print_positions(file_name, positions):
+    print(f"\nPosiciones en la {file_name}:")
+    for start, end in positions:
+        print(f"Posicion inicial: {start+1} Posicion final: {end+1}")
+
 if __name__ == "__main__":
     print("Archivo de transmisión 1: ")
     transmission1 = open_file("casos-de-prueba/transmission01.txt")
@@ -193,6 +255,13 @@ if __name__ == "__main__":
 
     if common_substring:
         print("\n\n\nSub-String más largo", common_substring)
+        
+        positions_in_file1 = find_substring_positions(transmission1, common_substring)
+        positions_in_file2 = find_substring_positions(transmission2, common_substring)
+
+        print_positions("Transmisión 1", positions_in_file1)
+        print_positions("Transmisión 2", positions_in_file2)
+
     else:
         print("No se encontró un substring compartido en ambas transmisiones.")
     
@@ -201,7 +270,7 @@ if __name__ == "__main__":
     palindrome2, start2, end2 = find_longest_palindrome(transmission2)
 
 
-    print("Palíndromo más largo en la transmisión 1:")
+    print("\n\n\nPalíndromo más largo en la transmisión 1:")
     print("Texto del palíndromo:", palindrome1)
     print("Posición Inicial:", start1)
     print("Posición Final:", end1)
