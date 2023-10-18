@@ -10,6 +10,7 @@ def leerMatriz():
   """
   Función para leer la matriz de adyacencias del grafo
   
+  @complexity: O(n^2), donde n es el número de nodos del grafo
   @return: una lista de listas que representa la matriz de adyacencias
   """
   try:
