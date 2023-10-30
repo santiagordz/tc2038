@@ -1,3 +1,12 @@
+"""@
+Autores: David Langarica, Santiago Rodriguez, Juan Pablo Cabrera
+Fecha: 29/10/2023
+Descripcion: Este programa implementa el algoritmo de Programación Dinámica para resolver el problema de la mochila (Knapsack problem). 
+El algoritmo toma como entrada el número de elementos disponibles, los beneficios asociados a cada elemento, los pesos de cada elemento y la capacidad máxima de la mochila.
+Luego, construye una matriz en la que cada celda representa el beneficio máximo que se puede obtener considerando un subconjunto de los elementos y una capacidad de mochila específica. Finalmente, el programa devuelve el beneficio óptimo que se puede obtener y la matriz generada durante el proceso. 
+Complejidad logarítmica: O(N*W), donde N es el número de elementos y W es la capacidad máxima de la mochila.
+"""
+
 def mochila(N, beneficios, pesos, W):
     # Inicializando la matriz
     matriz = [[0 for x in range(W + 1)] for x in range(N + 1)]
