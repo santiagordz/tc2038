@@ -4,6 +4,30 @@ import numpy as np
 
 
 def illustrate_graph_from_adjacency_matrix(adjacency_matrix):
+    """
+    Illustrates a graph from an adjacency matrix using NetworkX and Matplotlib.
+
+    Parameters:
+    -----------
+    adjacency_matrix : numpy.ndarray
+        A 2D numpy array representing the adjacency matrix of the graph. Each element
+        (i, j) in the matrix represents the weight of the edge between nodes i and j.
+
+    Description:
+    ------------
+    This function creates a graph from the given adjacency matrix and displays it. The nodes are
+    arranged in a shell layout, and the edges are labeled with their respective weights.
+
+    Notes:
+    ------
+    - The graph is undirected.
+    - Nodes without connections are not displayed.
+    - Edge weights are assumed to be non-negative.
+
+    Returns:
+    --------
+    None
+    """
     if adjacency_matrix is not None:
         G = nx.from_numpy_array(adjacency_matrix, create_using=nx.Graph())
 
@@ -31,6 +55,31 @@ def illustrate_graph_from_adjacency_matrix(adjacency_matrix):
 
 
 def min_span_tree(adjacency_matrix):
+    """
+    Computes the minimum spanning tree (MST) of a graph represented by an adjacency matrix.
+
+    Parameters:
+    -----------
+    adjacency_matrix : numpy.ndarray
+        A 2D numpy array where each element (i, j) represents the weight of the edge between
+        nodes i and j. A weight of 0 implies no edge between the nodes.
+
+    Description:
+    ------------
+    This function uses Prim's algorithm to find the MST of the graph. It starts from the first node
+    and iteratively adds the shortest edge connecting the tree to a new node, until all nodes are included.
+
+    Complexity:
+    -----------
+    O(n^2), where n is the number of nodes in the graph. This is due to the nested loop structure.
+
+    Returns:
+    --------
+    numpy.ndarray
+        A 2D numpy array representing the adjacency matrix of the MST. The weights of the edges
+        not included in the MST are set to 0.
+    """
+
     num_nodes = len(adjacency_matrix)
     selected_nodes = np.zeros(num_nodes, dtype=bool)
     selected_nodes[0] = True
@@ -56,6 +105,31 @@ def min_span_tree(adjacency_matrix):
 
 
 def illustrate_graph_from_mst(mst_matrix):
+    """
+    Illustrates a minimum spanning tree (MST) from its adjacency matrix using NetworkX and Matplotlib.
+
+    Parameters:
+    -----------
+    mst_matrix : numpy.ndarray
+        A 2D numpy array representing the adjacency matrix of the MST. Each element (i, j)
+        in the matrix represents the weight of the edge between nodes i and j in the MST.
+
+    Description:
+    ------------
+    This function creates a graph from the given MST matrix and displays it. The nodes are
+    arranged in a shell layout, and the edges are labeled with their respective weights.
+
+    Notes:
+    ------
+    - The graph is undirected.
+    - Nodes without connections are not displayed.
+    - Edge weights are assumed to be non-negative.
+
+    Returns:
+    --------
+    None
+    """
+
     if mst_matrix is not None:
         G = nx.from_numpy_array(mst_matrix, create_using=nx.Graph())
 
