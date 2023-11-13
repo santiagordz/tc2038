@@ -20,14 +20,13 @@ print("Problema 3")
 msp = min_span_tree(adj_matrix_1)
 print(msp)
 
-# Problema 4: leer las centrales y la nueva ubicación
-centrales = [tuple(map(int, line.strip("()").split(',')))
-            for line in file_structure[3].split()]
-nueva_central = tuple(map(int, file_structure[4].strip("()").split(',')))
+# Problema 4: usar las últimas líneas para el problema de la central más cercana
+centrales = file_structure[3]
+nueva_central = file_structure[4]
 
 central_cercana, distancia = encontrar_central_mas_cercana(
     centrales, nueva_central)
 
 print("Problema 4")
 print(
-    f"La central más cercana a {nueva_central} está en {central_cercana} a una distancia de {distancia} km")
+    f"La central más cercana es {central_cercana} con una distancia de {distancia} unidades.")
