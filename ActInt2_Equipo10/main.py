@@ -21,9 +21,11 @@ print("Problema 3")
 msp = min_span_tree(adj_matrix_1)
 print(msp)
 
-# Problema 4: usar las últimas líneas para el problema de la central más cercana
-central_cercana, distancia = encontrar_central_mas_cercana()
+centrales = file_structure[3]
+nueva_central = file_structure[4][0]
+central_cercana, distancia = encontrar_central_mas_cercana(centrales, nueva_central)
 
 print("Problema 4")
 print(
-    f"La central más cercana es {central_cercana} con una distancia de {distancia} unidades.")
+    f"La central más cercana es {central_cercana} con una distancia de {distancia} unidades."
+)
