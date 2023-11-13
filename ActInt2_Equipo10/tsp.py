@@ -15,9 +15,11 @@ def initialize_pheromones(distances_matrix):
     Initializes the pheromone matrix based on the distances_matrix matrix.
 
     Complexity:
+    -----------
         O(n^2), where n is the number of nodes.
 
     Returns:
+    --------
     pheromones (numpy.ndarray): A matrix with the same shape as distances_matrix, where
         each element is calculated as 1 / distances_matrix if the corresponding element
         in distances_matrix is greater than 0, otherwise it is set to 0.
@@ -35,12 +37,15 @@ def evaporate_pheromones(pheromones):
     Calculates the new pheromone levels after evaporation.
 
     Complexity:
+    -----------
         O(n^2), where n is the number of nodes.
 
     Args:
+    -----
     - pheromones (numpy array): The current pheromone levels.
 
     Returns:
+    --------
     - new_pheromones (numpy array): The updated pheromone levels after evaporation.
     """
     # The new pheromone levels are calculated as the current pheromone levels multiplied by the evaporation rate
@@ -52,14 +57,17 @@ def reinforce_pheromones(pheromones, best_route, best_distance):
     Update the pheromone levels on the edges of the graph based on the best route found and its corresponding distance.
 
     Complexity:
+    -----------
         O(n), where n is the number of nodes.
 
     Args:
+    -----
         pheromones (matrix): A matrix representing the pheromone levels on the edges of the graph.
         best_route (list): A list representing the best route found.
         best_distance (float): The distance of the best route found.
 
     Returns:
+    --------
         matrix: Updated pheromone matrix with the pheromone levels on the edges of the graph after reinforcement.
     """
     for i in range(len(best_route) - 1):
@@ -75,9 +83,11 @@ def choose_next_node(pheromones, actual, visited, distances_matrix):
     Then selects a node randomly based on these probabilities.
 
     Complexity:
+    -----------
         O(n), where n is the number of nodes.
 
     Args:
+    -----
         pheromones (numpy array): A matrix representing the pheromone levels between nodes.
         actual (int): The index of the current node.
         visited (list): A list of indices of the nodes that have been visited.
@@ -85,6 +95,7 @@ def choose_next_node(pheromones, actual, visited, distances_matrix):
         beta (float, optional): The weight for the distance between nodes in the probability calculation. Default is 1.
 
     Returns:
+    --------
         int: The index of the next node to visit.
     """
     # Start with an array of zeros with the same length as the pheromone matrix
@@ -105,12 +116,15 @@ def map_route(route):
     Maps the route from indices to letters.
 
     Complexity:
+    -----------
         O(n), where n is the length of the route.
 
     Args:
+    -----
         route (list): A list of indices representing the route.
 
     Returns:
+    --------
         list: A list of letters representing the route.
     """
     mapped_route = []
@@ -126,12 +140,15 @@ def slime_mold(distances_matrix):
     Finds the shortest route using the slime mold algorithm.
 
     Complexity:
+    -----------
         O(i * n^2) where i is the number of iterations and n is the number of nodes. This is due to the nested loops over iterations and the nodes in the pheromone matrix.
 
     Args:
+    -----
         distances_matrix (numpy array): A matrix representing the distances between nodes.
 
     Returns:
+    --------
         list: A list of letters representing the best route found.
         float: The distance of the best route found.
     """
@@ -186,10 +203,12 @@ def animate_route(route, distances_matrix):
     """
     Animates the route of the slime mold.
 
-     Complexity:
+    Complexity:
+    -----------
         O(m * n^2) where m is the number of elements in the route and n is the number of nodes. This is due to the updating of the graph for each frame in the animation.
 
     Args:
+    -----
         route (list): A list of indices representing the route.
     """
     fig, ax = plt.subplots()
