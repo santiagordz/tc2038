@@ -3,6 +3,7 @@ from forma_optima import *
 from tsp import slime_mold
 from distancia_mas_corta import encontrar_central_mas_cercana
 
+
 # Código existente para Problema 2 y 3
 file_structure = open_file("entrada1.txt")
 
@@ -21,11 +22,7 @@ msp = min_span_tree(adj_matrix_1)
 print(msp)
 
 # Problema 4: usar las últimas líneas para el problema de la central más cercana
-centrales = file_structure[3]
-nueva_central = file_structure[4]
-
-central_cercana, distancia = encontrar_central_mas_cercana(
-    centrales, nueva_central)
+central_cercana, distancia = encontrar_central_mas_cercana()
 
 print("Problema 4")
 print(

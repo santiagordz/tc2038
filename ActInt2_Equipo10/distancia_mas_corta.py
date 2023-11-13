@@ -6,8 +6,11 @@ def calcular_distancia(punto1, punto2):
     return math.sqrt((punto1[0] - punto2[0])**2 + (punto1[1] - punto2[1])**2)
 
 
-def encontrar_central_mas_cercana(centrales, nueva_central):
-    """Encuentra la central más cercana a la nueva ubicación."""
+def encontrar_central_mas_cercana():
+    """Encuentra la central más cercana a la nueva ubicación, con coordenadas hardcodeadas."""
+    centrales = [(200, 500), (300, 100), (450, 150), (520, 480)]
+    nueva_central = (325, 200)
+
     distancia_minima = float('inf')
     central_mas_cercana = None
 
