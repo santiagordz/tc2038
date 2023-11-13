@@ -1,7 +1,7 @@
 from file_operations import build_adjacency_matrix_from_file_lines, open_file
 from forma_optima import *
 from tsp import slime_mold
-from distancia_mas_corta import encontrar_central_mas_cercana
+from distancia_mas_cercana import encontrar_central_mas_cercana
 
 # Código existente para Problema 2 y 3
 file_structure = open_file("entrada1.txt")
