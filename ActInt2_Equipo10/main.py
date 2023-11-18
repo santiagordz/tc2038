@@ -12,7 +12,7 @@ if __name__ == "__main__":
     for i in range(NUM_FILES):
         print(f"Caso de prueba {i+1}", end="\n\n")
 
-        file_structure = open_file(f"entrada{i+1}.txt")
+        file_structure = open_file(f"Equipo_10_Entrada_{i+1}.txt")
         file_line = file_structure[1]
         adj_matrix = build_adjacency_matrix_from_file_lines(file_line)
         route, distance = slime_mold(adj_matrix)
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         print("Problema 3")
         max_flox_matrix = build_adjacency_matrix_from_file_lines(file_structure[2])
         max_flow = ford_fulkerson(max_flox_matrix)
-        print(f"El flujo máximo es {max_flow} unidades.")
+        print(f"El flujo máximo es {max_flow} unidades.", end="\n\n")
 
         print("Problema 4")
         msp = min_span_tree(adj_matrix)

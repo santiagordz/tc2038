@@ -14,6 +14,11 @@ def initialize_pheromones(distances_matrix):
     """
     Initializes the pheromone matrix based on the distances_matrix matrix.
 
+    Parameters:
+    -----------
+    distances_matrix : numpy.ndarray
+        A matrix representing the distances between nodes.
+
     Complexity:
     -----------
         O(n^2), where n is the number of nodes.
@@ -36,6 +41,11 @@ def evaporate_pheromones(pheromones):
     """
     Calculates the new pheromone levels after evaporation.
 
+    Parameters:
+    -----------
+    pheromones : numpy array
+        The current pheromone levels.
+
     Complexity:
     -----------
         O(n^2), where n is the number of nodes.
@@ -55,6 +65,15 @@ def evaporate_pheromones(pheromones):
 def reinforce_pheromones(pheromones, best_route, best_distance):
     """
     Update the pheromone levels on the edges of the graph based on the best route found and its corresponding distance.
+
+    Parameters:
+    -----------
+    pheromones : matrix
+        A matrix representing the pheromone levels on the edges of the graph.
+    best_route : list
+        A list representing the best route found.
+    best_distance : float
+        The distance of the best route found.
 
     Complexity:
     -----------
@@ -81,6 +100,20 @@ def choose_next_node(pheromones, actual, visited, distances_matrix):
     """
     Calculates the probability of moving to each unvisited node based on the pheromone levels and the distance between nodes.
     Then selects a node randomly based on these probabilities.
+
+    Parameters:
+    -----------
+    pheromones : numpy array
+        A matrix representing the pheromone levels between nodes.
+
+    actual : int
+        The index of the current node.
+
+    visited : list
+        A list of indices of the nodes that have been visited.
+
+    distances_matrix : numpy array
+        A matrix representing the distances between nodes.
 
     Complexity:
     -----------
@@ -115,6 +148,11 @@ def map_route(route):
     """
     Maps the route from indices to letters.
 
+    Parameters:
+    -----------
+    route : list
+        A list of indices representing the route.
+
     Complexity:
     -----------
         O(n), where n is the length of the route.
@@ -138,6 +176,11 @@ def map_route(route):
 def slime_mold(distances_matrix):
     """
     Finds the shortest route using the slime mold algorithm.
+
+    Parameters:
+    -----------
+    distances_matrix : numpy array
+        A matrix representing the distances between nodes.
 
     Complexity:
     -----------
@@ -203,6 +246,14 @@ def animate_route(route, distances_matrix):
     """
     Animates the route of the slime mold.
 
+    Parameters:
+    -----------
+    route : list
+        A list of indices representing the route.
+
+    distances_matrix : numpy array
+        A matrix representing the distances between nodes.
+
     Complexity:
     -----------
         O(m * n^2) where m is the number of elements in the route and n is the number of nodes. This is due to the updating of the graph for each frame in the animation.
@@ -257,6 +308,14 @@ def animate_route(route, distances_matrix):
 def print_route(route, distance):
     """
     Prints the route and the distance.
+
+    Parameters:
+    -----------
+    route : list
+        A list of letters representing the route.
+
+    distance : float
+        The distance of the route.
 
     Complexity:
     -----------
