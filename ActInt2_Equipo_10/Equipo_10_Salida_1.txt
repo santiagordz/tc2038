@@ -1,0 +1,15 @@
+Caso de prueba 1
+
+Problema 2
+Camino más corto: A--->B--->C--->D--->A
+Distancia: 73 km
+
+Problema 3
+El flujo máximo es 78 unidades.
+
+Problema 4
+[[ 0 16  0  0]
+ [16  0 18  0]
+ [ 0 18  0  7]
+ [ 0  0  7  0]]
+La central más cercana es (300, 100) con una distancia de 103.07764064044152 unidades.

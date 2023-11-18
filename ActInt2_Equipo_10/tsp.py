@@ -262,7 +262,7 @@ def animate_route(route, distances_matrix):
     -----
         route (list): A list of indices representing the route.
     """
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(8, 4))
     G = nx.from_numpy_array(distances_matrix)
 
     # Map the indices to letters
@@ -303,6 +303,41 @@ def animate_route(route, distances_matrix):
     )
 
     return anim
+
+
+def plot_route(route, distances_matrix):
+    fig, ax = plt.subplots(figsize=(8, 4))
+    G = nx.from_numpy_array(distances_matrix)
+
+    # Map the indices to letters
+    G = nx.relabel_nodes(G, DICTIONARY)
+
+    # Get the positions of the nodes
+
+    pos = nx.spring_layout(G)
+
+    # Draw all the edges in the graph
+    nx.draw_networkx_edges(G, pos, ax=ax, edge_color="grey")
+
+    # Draw all the nodes in the graph
+    nx.draw_networkx_nodes(G, pos, node_color="skyblue", ax=ax)
+
+    # Draw the labels for the nodes and the edges
+    nx.draw_networkx_labels(G, pos, ax=ax)
+
+    nx.draw_networkx_edge_labels(
+        G, pos, edge_labels=nx.get_edge_attributes(G, "weight"), ax=ax
+    )
+
+    # If we have visited more than one node, draw the edges between them
+    if len(route) > 1:
+        route_edges = list(zip(route[:-1], route[1:]))
+        nx.draw_networkx_nodes(G, pos, nodelist=route, node_color="red", ax=ax)
+        nx.draw_networkx_edges(
+            G, pos, edgelist=route_edges, edge_color="red", width=2, ax=ax
+        )
+
+    plt.show()
 
 
 def print_route(route, distance):

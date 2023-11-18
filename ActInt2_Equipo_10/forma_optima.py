@@ -29,6 +29,7 @@ def illustrate_graph_from_adjacency_matrix(adjacency_matrix):
     None
     """
     if adjacency_matrix is not None:
+        fig, ax = plt.subplots(figsize=(8, 4))
         G = nx.from_numpy_array(adjacency_matrix, create_using=nx.Graph())
 
         # Use 'shell_layout' for a straight and square layout
@@ -131,6 +132,7 @@ def illustrate_graph_from_mst(mst_matrix):
     """
 
     if mst_matrix is not None:
+        fig, ax = plt.subplots(figsize=(8, 4))
         G = nx.from_numpy_array(mst_matrix, create_using=nx.Graph())
 
         # Use 'shell_layout' for a straight and square layout
