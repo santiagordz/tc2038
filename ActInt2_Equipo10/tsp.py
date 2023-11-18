@@ -252,3 +252,23 @@ def animate_route(route, distances_matrix):
     )
 
     return anim
+
+
+def print_route(route, distance):
+    """
+    Prints the route and the distance.
+
+    Complexity:
+    -----------
+        O(n), where n is the length of the route.
+
+    Args:
+    -----
+        route (list): A list of letters representing the route.
+        distance (float): The distance of the route.
+    """
+    print("Camino más corto:", end=" ")
+    for i in range(len(route) - 1):
+        print(route[i], end="--->")
+    print(route[-1])
+    print(f"Distancia: {distance} km", end="\n\n")
